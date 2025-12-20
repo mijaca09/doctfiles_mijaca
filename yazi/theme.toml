@@ -1,0 +1,336 @@
+# Flexoki Dark theme for Yazi
+# Based on Flexoki Dark color scheme by Steph Ango
+"$schema" = "https://yazi-rs.github.io/schemas/theme.json"
+
+# : Flavor {{{
+
+[flavor]
+dark  = ""
+light = ""
+
+# : }}}
+
+# : Manager {{{
+
+[mgr]
+cwd = { fg = "#D0A215", bold = true }
+
+# Find
+find_keyword  = { fg = "#D0A215", bold = true, italic = true, underline = true }
+find_position = { fg = "#AD8301", bg = "reset", bold = true, italic = true }
+
+# Marker
+marker_copied   = { fg = "#D0A215", bg = "#D0A215" }
+marker_cut      = { fg = "#D14D41", bg = "#D14D41" }
+marker_marked   = { fg = "#4385BE", bg = "#4385BE" }
+marker_selected = { fg = "#66800B", bg = "#66800B" }
+
+# Count
+count_copied   = { fg = "#100F0F", bg = "#D0A215" }
+count_cut      = { fg = "#100F0F", bg = "#D14D41" }
+count_selected = { fg = "#100F0F", bg = "#66800B" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#575653" }
+
+# Highlighting
+syntect_theme = ""
+
+# : }}}
+
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "#100F0F", bg = "#D0A215", bold = true }
+inactive = { fg = "#6F6E69", bg = "#282726" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# : }}}
+
+# : Mode {{{
+
+[mode]
+normal_main = { fg = "#100F0F", bg = "#4385BE", bold = true }
+normal_alt  = { fg = "#4385BE", bg = "#282726" }
+
+# Select mode
+select_main = { fg = "#100F0F", bg = "#66800B", bold = true }
+select_alt  = { fg = "#66800B", bg = "#282726" }
+
+# Unset mode
+unset_main = { fg = "#100F0F", bg = "#D14D41", bold = true }
+unset_alt  = { fg = "#D14D41", bg = "#282726" }
+
+# : }}}
+
+# : Indicator {{{
+
+[indicator]
+count_copied   = { fg = "#100F0F", bg = "#D0A215" }
+count_cut      = { fg = "#100F0F", bg = "#D14D41" }
+count_selected = { fg = "#100F0F", bg = "#66800B" }
+
+# : }}}
+
+# : Status {{{
+
+[status]
+separator_open  = ""
+separator_close = ""
+
+# Mode
+mode_normal_main = { fg = "#100F0F", bg = "#4385BE", bold = true }
+mode_normal_alt  = { fg = "#4385BE", bg = "#282726" }
+
+mode_select_main = { fg = "#100F0F", bg = "#66800B", bold = true }
+mode_select_alt  = { fg = "#66800B", bg = "#282726" }
+
+mode_unset_main = { fg = "#100F0F", bg = "#D14D41", bold = true }
+mode_unset_alt  = { fg = "#D14D41", bg = "#282726" }
+
+# Progress
+progress_label  = { fg = "#CECDC3", bold = true }
+progress_normal = { fg = "#4385BE", bg = "#282726" }
+progress_error  = { fg = "#D14D41", bg = "#282726" }
+
+# Permissions
+permissions_t = { fg = "#66800B" }
+permissions_r = { fg = "#D0A215" }
+permissions_w = { fg = "#D14D41" }
+permissions_x = { fg = "#4385BE" }
+permissions_s = { fg = "#6F6E69" }
+
+# : }}}
+
+# : Which {{{
+
+[which]
+mask = { bg = "#282726" }
+cand = { fg = "#4385BE" }
+rest = { fg = "#6F6E69" }
+desc = { fg = "#AD8301" }
+separator       = "  "
+separator_style = { fg = "#575653" }
+
+# : }}}
+
+# : Confirm {{{
+
+[confirm]
+border = { fg = "#4385BE" }
+title  = { fg = "#D0A215" }
+content = { fg = "#CECDC3" }
+
+# : }}}
+
+# : Spot {{{
+
+[spot]
+border = { fg = "#4385BE" }
+title  = { fg = "#D0A215" }
+
+# : }}}
+
+# : Notify {{{
+
+[notify]
+border_info  = { fg = "#4385BE" }
+border_warn  = { fg = "#D0A215" }
+border_error = { fg = "#D14D41" }
+
+title_info  = { fg = "#4385BE" }
+title_warn  = { fg = "#D0A215" }
+title_error = { fg = "#D14D41" }
+
+# : }}}
+
+# : Pick {{{
+
+[pick]
+border = { fg = "#4385BE" }
+active = { fg = "#D0A215", bold = true }
+inactive = { fg = "#CECDC3" }
+
+# : }}}
+
+# : Input {{{
+
+[input]
+border   = { fg = "#4385BE" }
+title    = { fg = "#D0A215" }
+value    = { fg = "#CECDC3" }
+selected = { bg = "#575653" }
+
+# : }}}
+
+# : Completion {{{
+
+[cmp]
+border = { fg = "#4385BE" }
+active = { bg = "#575653" }
+inactive = { fg = "#CECDC3" }
+
+# Icons
+icon_file    = ""
+icon_folder  = ""
+icon_command = ""
+
+# : }}}
+
+# : Tasks {{{
+
+[tasks]
+border  = { fg = "#4385BE" }
+title   = { fg = "#D0A215" }
+hovered = { fg = "#D0A215", underline = true }
+
+# : }}}
+
+# : Help {{{
+
+[help]
+on      = { fg = "#D0A215" }
+run     = { fg = "#4385BE" }
+desc    = { fg = "#6F6E69" }
+hovered = { bg = "#575653", bold = true }
+footer  = { fg = "#282726", bg = "#CECDC3" }
+
+# : }}}
+
+# : Filetype {{{
+
+[filetype]
+
+rules = [
+	# Images
+	{ mime = "image/*", fg = "#66800B" },
+	
+	# Media
+	{ mime = "video/*", fg = "#D0A215" },
+	{ mime = "audio/*", fg = "#D0A215" },
+	
+	# Archives
+	{ mime = "application/*zip",       fg = "#D14D41" },
+	{ mime = "application/*tar",       fg = "#D14D41" },
+	{ mime = "application/*bzip*",     fg = "#D14D41" },
+	{ mime = "application/x-7z-*",     fg = "#D14D41" },
+	{ mime = "application/x-rar",      fg = "#D14D41" },
+	{ mime = "application/x-xz",       fg = "#D14D41" },
+	
+	# Documents
+	{ mime = "application/pdf", fg = "#D14D41" },
+	{ mime = "application/*doc", fg = "#4385BE" },
+	
+	# Code
+	{ name = "*.js",   fg = "#D0A215" },
+	{ name = "*.ts",   fg = "#4385BE" },
+	{ name = "*.jsx",  fg = "#D0A215" },
+	{ name = "*.tsx",  fg = "#4385BE" },
+	{ name = "*.py",   fg = "#4385BE" },
+	{ name = "*.rs",   fg = "#D14D41" },
+	{ name = "*.go",   fg = "#4385BE" },
+	{ name = "*.lua",  fg = "#4385BE" },
+	{ name = "*.sh",   fg = "#66800B" },
+	{ name = "*.bash", fg = "#66800B" },
+	{ name = "*.zsh",  fg = "#66800B" },
+	{ name = "*.fish", fg = "#66800B" },
+	
+	# Config
+	{ name = "*.toml", fg = "#AD8301" },
+	{ name = "*.yaml", fg = "#AD8301" },
+	{ name = "*.yml",  fg = "#AD8301" },
+	{ name = "*.json", fg = "#AD8301" },
+	{ name = "*.xml",  fg = "#AD8301" },
+	
+	# Fallback
+	{ name = "*", fg = "#CECDC3" },
+	{ name = "*/", fg = "#4385BE" }
+]
+
+# : }}}
+
+# : Icon {{{
+
+[icon]
+
+files = [
+	{ name = ".babelrc",               text = "󰨥" },
+	{ name = ".bash_profile",          text = "" },
+	{ name = ".bashrc",                text = "" },
+	{ name = ".dockerignore",          text = "󰡨" },
+	{ name = ".editorconfig",          text = "" },
+	{ name = ".eslintignore",          text = "󰱺" },
+	{ name = ".gitattributes",         text = "" },
+	{ name = ".gitignore",             text = "" },
+	{ name = ".gitlab-ci.yml",         text = "" },
+	{ name = ".gitmodules",            text = "" },
+	{ name = ".npmignore",             text = "" },
+	{ name = ".prettierrc",            text = "" },
+	{ name = ".vimrc",                 text = "" },
+	{ name = ".zshrc",                 text = "" },
+	{ name = "Cargo.lock",             text = "" },
+	{ name = "Cargo.toml",             text = "" },
+	{ name = "Dockerfile",             text = "󰡨" },
+	{ name = "LICENSE",                text = "" },
+	{ name = "Makefile",               text = "" },
+	{ name = "README",                 text = "" },
+	{ name = "go.mod",                 text = "" },
+	{ name = "go.sum",                 text = "" },
+	{ name = "package-lock.json",      text = "" },
+	{ name = "package.json",           text = "" },
+	
+	# Extensions
+	{ name = "*.bat",    text = "" },
+	{ name = "*.c",      text = "" },
+	{ name = "*.conf",   text = "" },
+	{ name = "*.cpp",    text = "" },
+	{ name = "*.css",    text = "" },
+	{ name = "*.fish",   text = "" },
+	{ name = "*.go",     text = "" },
+	{ name = "*.h",      text = "" },
+	{ name = "*.html",   text = "" },
+	{ name = "*.jar",    text = "" },
+	{ name = "*.java",   text = "" },
+	{ name = "*.js",     text = "" },
+	{ name = "*.json",   text = "" },
+	{ name = "*.jsx",    text = "" },
+	{ name = "*.lua",    text = "" },
+	{ name = "*.md",     text = "" },
+	{ name = "*.nix",    text = "" },
+	{ name = "*.pdf",    text = "" },
+	{ name = "*.php",    text = "" },
+	{ name = "*.png",    text = "" },
+	{ name = "*.py",     text = "" },
+	{ name = "*.rb",     text = "" },
+	{ name = "*.rs",     text = "" },
+	{ name = "*.scss",   text = "" },
+	{ name = "*.sh",     text = "" },
+	{ name = "*.sql",    text = "" },
+	{ name = "*.svg",    text = "" },
+	{ name = "*.toml",   text = "" },
+	{ name = "*.ts",     text = "" },
+	{ name = "*.tsx",    text = "" },
+	{ name = "*.txt",    text = "" },
+	{ name = "*.vim",    text = "" },
+	{ name = "*.vue",    text = "" },
+	{ name = "*.yaml",   text = "" },
+	{ name = "*.yml",    text = "" },
+	{ name = "*.zip",    text = "" },
+]
+
+dirs = [
+	{ name = ".config", text = "" },
+	{ name = ".git",    text = "" },
+	{ name = "Desktop", text = "" },
+	{ name = "Documents", text = "" },
+	{ name = "Downloads", text = "" },
+	{ name = "Pictures", text = "" },
+	{ name = "Music",   text = "" },
+	{ name = "Videos",  text = "" },
+]
+
+# : }}}
