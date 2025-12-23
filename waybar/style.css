@@ -1,46 +1,15 @@
 /* Global styles */
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Iosevka Nerd Font", Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: rgba(0, 0, 0, 0); /* Transparente total para que se vean solo los modulos */
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-}
-
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-/* Common module styles */
+/* Common module styles - Based on Center Design */
 #clock,
 #battery,
 #cpu,
@@ -57,12 +26,68 @@ button:hover {
 #idle_inhibitor,
 #scratchpad,
 #power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
+#mpd,
+#window,
+#custom-power,
+#workspaces {
+    background: #24283b;
     color: #ffffff;
+    padding: 2px 12px;
+    margin: 0 2px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    /* transition: all 0.3s ease; */
 }
 
-/* Import modular styles */
-@import "styles/left.css";
-@import "styles/center.css";
-@import "styles/right.css";
+/* Specific button styles for workspaces */
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #7aa2f7;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+}
+
+/* Battery animations and states */
+#battery.charging,
+#battery.plugged {
+    color: #9ece6a;
+}
+
+@keyframes blink {
+    to {
+        background-color: #f7768e;
+        color: #ffffff;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #f7768e;
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* Clean up module-specific overrides that might conflict */
+/* We keep some specific colors if desired, but they will now have the same background */
+
+#network.disconnected,
+#pulseaudio.muted {
+    color: #f7768e;
+}
+
+#keyboard-state {
+    background: #24283b; /* Ensure it matches */
+}

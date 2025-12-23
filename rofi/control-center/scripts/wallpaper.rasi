@@ -1,0 +1,87 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+}
+
+* {
+    bg-color:            #24283b;
+    bg-alt:              #1a1b26;
+    fg-color:            #c0caf5;
+    accent-color:        #7aa2f7;
+}
+
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       800px;
+    height:                      600px;
+    border:                      2px solid;
+    border-radius:               12px;
+    border-color:                @accent-color;
+    background-color:            @bg-color;
+}
+
+mainbox {
+    children:                    [ "inputbar", "listview" ];
+    background-color:            transparent;
+    spacing:                     15px;
+    padding:                     20px;
+}
+
+inputbar {
+    children:                    [ "prompt", "entry" ];
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+prompt {
+    background-color:            inherit;
+    text-color:                  inherit;
+}
+
+entry {
+    background-color:            inherit;
+    text-color:                  inherit;
+    placeholder:                 "Search wallpapers...";
+    placeholder-color:           inherit;
+}
+
+listview {
+    columns:                     3;
+    lines:                       3;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    spacing:                     15px;
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element {
+    orientation:                 vertical;
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            transparent;
+    text-color:                  @fg-color;
+}
+
+element selected {
+    background-color:            @accent-color;
+    text-color:                  @bg-alt;
+}
+
+element-icon {
+    size:                        180px;
+    horizontal-align:            0.5;
+    background-color:            transparent;
+}
+
+element-text {
+    horizontal-align:            0.5;
+    background-color:            transparent;
+    text-color:                  inherit;
+}

@@ -1,0 +1,57 @@
+configuration {
+    show-icons:                     false;
+    click-to-exit:                  true;
+}
+
+@import "../../wifimenu/config/font.rasi"
+@import "../../wifimenu/config/colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @BG;
+    text-color:                     @FG;
+    border:                         2px;
+    border-color:                   @BDR;
+    border-radius:                  10px;
+    width:                          250px;
+    anchor:                         center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+
+mainbox {
+    background-color:               @BG;
+    children:                       [ listview ];
+    spacing:                        10px;
+    padding:                        10px;
+}
+
+listview {
+    background-color:               @BG;
+    columns:                        1;
+    lines:                          4;
+    spacing:                        5px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+element {
+    background-color:               @BG;
+    text-color:                     @FG;
+    orientation:                    horizontal;
+    border-radius:                  8px;
+    padding:                        8px;
+}
+
+element-text {
+    background-color:               inherit;
+    text-color:                     inherit;
+    font:                           "Iosevka Nerd Font 12";
+}
+
+element selected {
+    background-color:               @BGA;
+    text-color:                     @SEL;
+    border-radius:                  8px;
+}

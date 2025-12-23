@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
-# Script para restaurar el fondo de pantalla desde waypaper
-# Lee el archivo de configuración de waypaper y aplica el fondo
+# Script mejorado para restaurar el fondo de pantalla desde waypaper
+# Se ejecuta al inicio de Hyprland
 
+# Esperar un poco para que Hyprpaper esté completamente cargado
+sleep 2
+
+# Configurar Hyprpaper
+hyprctl hyprpaper reload
+
+# Leer configuración de waypaper
 waypaper_config="$HOME/.config/waypaper/config.ini"
 
 if [ -f "$waypaper_config" ]; then
-    # Leer el fondo de pantalla del config.ini
+    # Extraer el wallpaper del config
     wallpaper=$(grep "^wallpaper = " "$waypaper_config" | cut -d'=' -f2 | tr -d ' ')
     
     # Expandir ~ si está presente
@@ -14,45 +21,38 @@ if [ -f "$waypaper_config" ]; then
     
     # Verificar que el archivo existe
     if [ -f "$wallpaper" ]; then
-        # Obtener el backend configurado
-        backend=$(grep "^backend = " "$waypaper_config" | cut -d'=' -f2 | tr -d ' ')
+        echo "Restaurando wallpaper: $wallpaper"
         
-        case "$backend" in
-            hyprpaper)
-                # Configurar hyprpaper
-                hyprpaper preload "$wallpaper"
-                # Obtener todos los monitores
-                monitors=$(hyprctl monitors -j | jq -r '.[].name' 2>/dev/null || echo "")
-                if [ -z "$monitors" ]; then
-                    # Si no hay monitores detectados, usar el predeterminado
-                    hyprpaper wallpaper "eDP-1,$wallpaper" 2>/dev/null || \
-                    hyprpaper wallpaper "DP-1,$wallpaper" 2>/dev/null || \
-                    hyprpaper wallpaper ",$wallpaper"
-                else
-                    # Aplicar a todos los monitores
-                    for monitor in $monitors; do
-                        hyprpaper wallpaper "$monitor,$wallpaper"
-                    done
-                fi
-                ;;
-            swww)
-                swww img "$wallpaper" 2>/dev/null || true
-                ;;
-            *)
-                # Si no reconocemos el backend, usar waypaper --restore
-                waypaper --restore 2>/dev/null || true
-                ;;
-        esac
+        # Preload del wallpaper
+        hyprctl hyprpaper preload "$wallpaper"
+        
+        # Obtener todos los monitores activos
+        monitors=$(hyprctl monitors -j | jq -r '.[] | select(.active == true) | .name' 2>/dev/null)
+        
+        if [ -n "$monitors" ]; then
+            # Aplicar a todos los monitores activos
+            for monitor in $monitors; do
+                echo "Aplicando wallpaper a monitor: $monitor"
+                hyprctl hyprpaper wallpaper "$monitor,$wallpaper"
+            done
+        else
+            # Fallback: aplicar a todos los monitores
+            echo "No se detectaron monitores activos, aplicando a todos..."
+            hyprctl hyprpaper wallpaper "all,$wallpaper"
+        fi
+        
+        echo "✓ Wallpaper restaurado exitosamente"
     else
-        # Si el archivo no existe, usar waypaper --restore como fallback
-        waypaper --restore 2>/dev/null || true
+        echo "⚠ No se encontró el archivo de wallpaper: $wallpaper"
+        # Fallback: usar waypaper --restore
+        waypaper --restore 2>/dev/null || echo "⚠ No se pudo restaurar con waypaper --restore"
     fi
 else
-    # Si no existe el config, usar waypaper --restore
-    waypaper --restore 2>/dev/null || true
+    echo "⚠ No se encontró config de waypaper"
+    # Fallback: usar waypaper --restore
+    waypaper --restore 2>/dev/null || echo "⚠ No se pudo restaurar con waypaper --restore"
 fi
 
-
-
+echo "Script de restauración de wallpaper completado"
 
 

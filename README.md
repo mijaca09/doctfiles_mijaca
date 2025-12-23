@@ -1,176 +1,47 @@
-# 🎨 Dotfiles de mijaca09
+# 🌿 Mis Dotfiles (Setup Personal de mijaca09)
 
-Configuración completa del sistema con sincronización automática a GitHub.
+¡Hola! Este es el rincón donde guardo toda la configuración de mi entorno de trabajo. No es solo un montón de archivos; es el resultado de muchas horas ajustando cada detalle para que mi sistema se sienta productivo, rápido y, sobre todo, bonito.
 
-## 📸 Preview
+Uso **Zorin OS 18** con **Hyprland**, y he intentado que todo tenga esa estética **Tokyo Night** que tanto me gusta: limpia, oscura y con esos toques azules y morados que se ven genial.
 
-- **WM**: Hyprland
-- **Bar**: Waybar
-- **Terminal**: Kitty (transparencia 85%)
-- **Editor**: Neovim (LazyVim) con transparencia
-- **File Manager**: Yazi
-- **Prompt**: Starship (Tokyo Night)
-- **Tema**: Tokyo Night / Flexoki Dark
+## 🛠️ ¿Qué hay aquí dentro?
 
-## 🚀 Instalación Rápida
+He configurado varias herramientas para que funcionen juntas de forma fluida:
 
-```bash
-# Clonar con submodules
-git clone --recursive git@github.com:mijaca09/dotfiles.git ~/Code/mijaca09/dotfiles
+*   **Hyprland**: Mi gestor de ventanas. Fluidez total con animaciones y atajos que me permiten moverme a la velocidad del rayo.
+*   **Waybar**: Una barra de estado minimalista pero con toda la info que necesito (batería, volumen, wifi).
+*   **Neovim (LazyVim)**: Mi editor principal. Está ultra-vitaminado para escribir código sin distracciones.
+*   **Rofi**: No solo lanza apps, también lo uso como un "Centro de Control" para gestionar el Bluetooth, el volumen y hasta cambiar el fondo de pantalla con previsualizaciones.
+*   **Tmux**: Para no perder nunca mis sesiones de terminal, con un gestor interactivo que hice para moverme entre proyectos.
 
-# Instalar todo
-cd ~/Code/mijaca09/dotfiles/.dotfiles-meta
-./install.sh
+## 🚀 Cómo usar este sistema
 
-# Recargar shell
-source ~/.bashrc
-```
+Si quieres probar mi configuración o simplemente curiosear, el proceso es muy sencillo. He preparado un script que se encarga de lo más aburrido (instalar programas y fuentes).
 
-## 📦 Dotfiles Incluidos
+1.  **Clona el repo**:
+    ```bash
+    git clone https://github.com/mijaca09/dotfiles.git ~/Code/mijaca09/dotfiles
+    ```
 
-| Aplicación | Descripción | Instalación Individual |
-|-----------|-------------|----------------------|
-| **Hyprland** | Window Manager | `./install-hypr.sh` |
-| **Waybar** | Status Bar | `./install-waybar.sh` |
-| **Kitty** | Terminal Emulator | `./install-kitty.sh` |
-| **Neovim** | Editor (LazyVim) | `./install-nvim.sh` |
-| **Yazi** | File Manager | `./install-yazi.sh` |
-| **Zellij** | Terminal Multiplexer | `./install-zellij.sh` |
-| **Starship** | Shell Prompt | `./install-starship.sh` |
+2.  **Instala todo**:
+    ```bash
+    cd ~/Code/mijaca09/dotfiles/.dotfiles-meta
+    ./install.sh
+    ```
 
-## 🔄 Flujo de Trabajo
+El script instalará las fuentes (**Iosevka Nerd Font** es mi favorita), los paquetes necesarios y creará los enlaces para que todo funcione al instante.
 
-### Modificar configuración
+## ⌨️ Atajos que uso a diario (Cheat Sheet)
 
-```bash
-# 1. Edita normalmente
-nvim ~/.config/nvim/lua/config/keymaps.lua
+He incluido un menú de ayuda dentro del sistema (**F3 -> Shortcuts**), pero aquí tienes lo básico:
 
-# 2. Commit y push
-cd ~/Code/mijaca09/dotfiles/nvim
-git add .
-git commit -m "Update keymaps"
-git push
-
-# 3. El repo principal se actualiza automáticamente
-```
-
-### Actualizar desde GitHub
-
-```bash
-cd ~/Code/mijaca09/dotfiles
-git pull
-git submodule update --remote --merge
-```
-
-## 📁 Estructura
-
-```
-dotfiles/
-├── hypr/              # Configuración de Hyprland
-├── waybar/            # Configuración de Waybar
-├── kitty/             # Configuración de Kitty
-├── nvim/              # Configuración de Neovim (LazyVim)
-├── yazi/              # Configuración de Yazi
-├── zellij/            # Configuración de Zellij
-├── starship/          # Configuración de Starship
-└── .dotfiles-meta/    # Scripts y documentación
-    ├── AI_CONTEXT.md          # Contexto completo para IA
-    ├── SETUP_GUIDE.md         # Guía detallada
-    ├── install.sh             # Instalación completa
-    └── install-*.sh           # Instalaciones individuales
-```
-
-## 🎯 Características
-
-- ✅ **Backup automático** en GitHub
-- ✅ **Versionado completo** de cambios
-- ✅ **Instalación modular** (todo o individual)
-- ✅ **Symlinks automáticos** a `~/.config/`
-- ✅ **Sincronización bidireccional**
-- ✅ **Scripts de instalación** para cada dotfile
-- ✅ **Portabilidad** total entre máquinas
-
-## 🔑 Requisitos
-
-- **Git** con SSH configurado
-- **Bash** shell
-- Aplicaciones que quieras configurar (hyprland, kitty, nvim, etc.)
-
-## 📚 Documentación
-
-- **[AI_CONTEXT.md](.dotfiles-meta/AI_CONTEXT.md)**: Contexto completo del sistema
-- **[SETUP_GUIDE.md](.dotfiles-meta/SETUP_GUIDE.md)**: Guía paso a paso
-
-## 🛠️ Comandos Útiles
-
-```bash
-# Ver estado de todos los dotfiles
-cd ~/Code/mijaca09/dotfiles
-git submodule status
-
-# Actualizar todos
-git submodule update --remote --merge
-
-# Ver diferencias
-cd ~/Code/mijaca09/dotfiles/nvim
-git diff
-
-# Verificar symlinks
-ls -la ~/.config/
-```
-
-## 🐛 Problemas Comunes
-
-### Symlink roto
-```bash
-rm ~/.config/nvim
-ln -s ~/Code/mijaca09/dotfiles/nvim ~/.config/nvim
-```
-
-### Git push falla
-```bash
-# Verificar SSH
-ssh -i ~/Code/mijaca09/mijaca09 -T git@github.com
-
-# Verificar config
-cd ~/Code/mijaca09/dotfiles/nvim
-git config user.name    # Debe ser: mijaca09
-git config user.email   # Debe ser: mijaca09@gmail.com
-```
-
-## 💡 Tips
-
-- Haz commits frecuentes y descriptivos
-- Prueba cambios antes de pushear
-- Usa branches para experimentos
-- Mantén backups de configs importantes
-
-## 📝 To-Do
-
-- [ ] Resolver tema Flexoki Dark en Yazi
-- [ ] Agregar dotfile para Bash
-- [ ] Agregar dotfile para Git
-- [ ] Crear GitHub Actions para CI/CD
-- [ ] Agregar screenshots
-
-## 📄 Licencia
-
-MIT License - Libre de usar y modificar
-
-## 🙏 Créditos
-
-- **LazyVim**: https://www.lazyvim.org/
-- **Tokyo Night Theme**: https://github.com/tokyo-night
-- **Flexoki Theme**: https://stephango.com/flexoki
-- **Starship**: https://starship.rs/
+*   **Super + Espacio**: Lanzador de aplicaciones.
+*   **Super + Q**: Cerrar la ventana actual.
+*   **F3**: El "botón de pánico" (Power Menu y Centro de Control).
+*   **Ctrl + a + S**: Mi gestor de sesiones en Tmux.
 
 ---
 
-**Autor**: mijaca09  
-**Email**: mijaca09@gmail.com  
-**GitHub**: [@mijaca09](https://github.com/mijaca09)
+Espero que estos dotfiles te sirvan de inspiración o te ayuden a montar tu propio entorno. Si tienes alguna duda o quieres saludar, ¡pásate por mis repos!
 
----
-
-*Si encuentras útil esta configuración, dale una ⭐!*
+**-- mijaca09**
