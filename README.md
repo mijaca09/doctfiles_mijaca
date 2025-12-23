@@ -12,6 +12,7 @@ He configurado varias herramientas para que funcionen juntas de forma fluida:
 *   **Waybar**: Una barra de estado minimalista pero con toda la info que necesito (batería, volumen, wifi).
 *   **Neovim (LazyVim)**: Mi editor principal. Está ultra-vitaminado para escribir código sin distracciones.
 *   **Rofi**: No solo lanza apps, también lo uso como un "Centro de Control" para gestionar el Bluetooth, el volumen y hasta cambiar el fondo de pantalla con previsualizaciones.
+*   **Terminales**: Soporte tanto para **Kitty** como para **Alacritty**. ¡Tú eliges cuál prefieres durante la instalación!
 *   **Tmux**: Para no perder nunca mis sesiones de terminal, con un gestor interactivo que hice para moverme entre proyectos.
 
 ## 🚀 Cómo usar este sistema
@@ -29,7 +30,7 @@ Si quieres probar mi configuración o simplemente curiosear, el proceso es muy s
     ./install.sh
     ```
 
-El script instalará las fuentes (**Iosevka Nerd Font** es mi favorita), los paquetes necesarios y creará los enlaces para que todo funcione al instante.
+**Nota**: El script te preguntará qué terminal prefieres usar (**Kitty** o **Alacritty**). Instalará la que elijas y activará su configuración automáticamente. También se encargará de las fuentes (**Iosevka Nerd Font** es mi favorita) y las dependencias.
 
 ## ⌨️ Atajos que uso a diario (Cheat Sheet)
 

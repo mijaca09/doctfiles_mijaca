@@ -15,10 +15,29 @@ NC='\033[0m'
 DOTFILES_DIR="$HOME/Code/mijaca09/dotfiles"
 CONFIG_DIR="$HOME/.config"
 
+# --- ELECCIÓN DE TERMINAL ---
+echo -e "${YELLOW}🖥️ Elige tu terminal preferida:${NC}"
+echo "1) Kitty"
+echo "2) Alacritty"
+read -p "Introduce el número (1 o 2): " terminal_choice
+
 # --- DEPENDENCIAS ---
 echo -e "${YELLOW}📦 Instalando dependencias del sistema...${NC}"
 sudo apt update
-sudo apt install -y waybar rofi hyprpaper tmux brightnessctl pulseaudio-utils nm-tray network-manager kitty nvim yazi starship git bc curl
+sudo apt install -y waybar rofi hyprpaper tmux brightnessctl pulseaudio-utils nm-tray network-manager nvim yazi starship git bc curl unzip
+
+if [ "$terminal_choice" == "1" ]; then
+    echo -e "${YELLOW}🐱 Instalando Kitty...${NC}"
+    sudo apt install -y kitty
+    TERM_CMD="kitty"
+elif [ "$terminal_choice" == "2" ]; then
+    echo -e "${YELLOW}🚀 Instalando Alacritty...${NC}"
+    sudo apt install -y alacritty
+    TERM_CMD="alacritty"
+else
+    echo -e "${RED}✗ Opción no válida. Saltando instalación de terminal.${NC}"
+    TERM_CMD=""
+fi
 
 # --- FUENTES ---
 echo -e "${YELLOW}󰛖 Instalando Iosevka Nerd Font...${NC}"
@@ -50,8 +69,8 @@ create_symlink() {
 echo -e "${YELLOW}🔗 Creando enlaces simbólicos...${NC}"
 mkdir -p "$CONFIG_DIR"
 
-# Lista de configuraciones a linkear
-configs=("hypr" "waybar" "kitty" "nvim" "yazi" "rofi" "wifimenu" "tmux")
+# Lista de configuraciones comunes
+configs=("hypr" "waybar" "nvim" "yazi" "rofi" "wifimenu" "tmux")
 
 for cfg in "${configs[@]}"; do
     if [ -d "$DOTFILES_DIR/$cfg" ]; then
@@ -59,6 +78,15 @@ for cfg in "${configs[@]}"; do
         create_symlink "$DOTFILES_DIR/$cfg" "$CONFIG_DIR/$cfg"
     fi
 done
+
+# Activar terminal elegida
+if [ "$TERM_CMD" == "kitty" ]; then
+    create_backup "$CONFIG_DIR/kitty"
+    create_symlink "$DOTFILES_DIR/kitty" "$CONFIG_DIR/kitty"
+elif [ "$TERM_CMD" == "alacritty" ]; then
+    create_backup "$CONFIG_DIR/alacritty"
+    create_symlink "$DOTFILES_DIR/alacritty" "$CONFIG_DIR/alacritty"
+fi
 
 # Tmux config especial
 create_backup "$HOME/.tmux.conf"
