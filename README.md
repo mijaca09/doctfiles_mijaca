@@ -2,7 +2,7 @@
 
 ¡Hola! Este es el rincón donde guardo toda la configuración de mi entorno de trabajo. No es solo un montón de archivos; es el resultado de muchas horas ajustando cada detalle para que mi sistema se sienta productivo, rápido y, sobre todo, bonito.
 
-Uso **Zorin OS 18** con **Hyprland**, y he intentado que todo tenga esa estética **Tokyo Night** y **Rosé Pine** que tanto me gusta: limpia, oscura y con esos toques elegantes que hacen que trabajar sea un placer.
+Uso **Zorin OS 18** con **Hyprland**, y he migrado mi entorno a la estética **Rosé Pine** (Main): limpia, elegante y con una paleta de colores coherente en todas mis herramientas principales.
 
 ---
 
@@ -17,6 +17,7 @@ Aquí tienes una lista de todo lo que incluye el script de instalación automát
 *   [**Terminales (Kitty/Alacritty)**](#terminales-kitty-y-alacritty): Tus puertas de entrada a la shell.
 *   [**Tmux**](#tmux-multiplexor-de-sesiones): Gestión persistente de sesiones.
 *   [**Starship**](#starship-el-prompt-elegante): Un prompt rápido y bonito.
+*   [**Lazygit**](#lazygit-git-en-la-terminal): Interfaz simple para Git.
 
 ---
 
@@ -24,31 +25,36 @@ Aquí tienes una lista de todo lo que incluye el script de instalación automát
 
 ### Hyprland: El Corazón del WM
 Es mi gestor de ventanas tipo *tiling*. Lo he configurado para ser extremadamente fluido con animaciones suaves. Incluye atajos para todo, desde mover ventanas hasta controlar el brillo y el volumen.
-*   **Temas**: Tokyo Night.
+*   **Temas**: Rosé Pine / Tokyo Night (en transición).
 
 ### Waybar: Tu Barra de Estado
 Ubicada en la parte superior, te da toda la info crítica de un vistazo: batería, volumen, Wi-Fi y reloj. Está diseñada para ser minimalista y no estorbar.
-*   **Temas**: Tokyo Night (fondo oscuro `#24283b`).
+*   **Temas**: **Rosé Pine** (fondo elegante `@overlay`).
 
 ### Neovim (LazyVim): El Editor Definitivo
-Basado en LazyVim, está configurado para desarrollo moderno. Incluye soporte para múltiples lenguajes, autcompletado inteligente y una estética impecable.
-*   **Temas**: Tokyo Night.
+Basado en LazyVim, está configurado para desarrollo moderno. Incluye soporte para múltiples lenguajes, autocompletado inteligente y una estética impecable.
+*   **Temas**: Tokyo Night / Rosé Pine.
 
 ### Rofi: Tu Centro de Control
 No es solo un lanzador. He creado scripts específicos para que desde Rofi puedas gestionar el Bluetooth (escanear, conectar, desconectar), cambiar el fondo de pantalla con previsualización y controlar el brillo/volumen.
-*   **Temas**: Tokyo Night.
+*   **Temas**: Tokyo Night (migrando a Rosé Pine).
 
 ### Terminales: Kitty y Alacritty
 El script te permite elegir cuál prefieres. Ambas están configuradas con transparencia y la fuente **Iosevka Nerd Font** para que se vean geniales.
-*   **Temas**: Tokyo Night.
+*   **Temas**: Rosé Pine.
 
 ### Tmux: Multiplexor de Sesiones
 Me permite mantener mis proyectos abiertos en segundo plano. He añadido un gestor de sesiones interactivo para saltar de un proyecto a otro sin esfuerzo.
 *   **Atajo**: `Ctrl + a + S`.
+*   **Temas**: **Rosé Pine** (vía plugin oficial).
 
 ### Starship: El Prompt Elegante
 He actualizado el prompt para que sea minimalista pero informativo, dándote contexto de Git y del lenguaje de programación en el que estés trabajando.
 *   **Temas**: **Rosé Pine** (Elegancia pura en cada comando).
+
+### Lazygit: Git en la Terminal
+Una interfaz visual para Git que hace que manejar ramas y commits sea un juego de niños.
+*   **Temas**: **Rosé Pine** (Paleta oficial aplicada).
 
 ---
 

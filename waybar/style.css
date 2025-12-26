@@ -1,3 +1,20 @@
+/* Rosé Pine Palette */
+@define-color base            #191724;
+@define-color surface         #1f1d2e;
+@define-color overlay         #26233a;
+@define-color muted           #6e6a86;
+@define-color subtle          #908caa;
+@define-color text            #e0def4;
+@define-color love            #eb6f92;
+@define-color gold            #f6c177;
+@define-color rose            #ebbcba;
+@define-color pine            #31748f;
+@define-color foam            #9ccfd8;
+@define-color iris            #c4a7e7;
+@define-color highlight_low   #21202e;
+@define-color highlight_med   #403d52;
+@define-color highlight_high  #524f67;
+
 /* Global styles */
 * {
     font-family: "Iosevka Nerd Font", Roboto, Helvetica, Arial, sans-serif;
@@ -5,11 +22,11 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0); /* Transparente total para que se vean solo los modulos */
-    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0);
+    color: @text;
 }
 
-/* Common module styles - Based on Center Design */
+/* Common module styles */
 #clock,
 #battery,
 #cpu,
@@ -30,49 +47,48 @@ window#waybar {
 #window,
 #custom-power,
 #workspaces {
-    background: #24283b;
-    color: #ffffff;
+    background: @overlay;
+    color: @text;
     padding: 2px 12px;
     margin: 0 2px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    /* transition: all 0.3s ease; */
 }
 
 /* Specific button styles for workspaces */
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ffffff;
+    color: @subtle;
     border-radius: 0;
 }
 
 #workspaces button.active {
-    color: #7aa2f7;
-    background-color: rgba(255, 255, 255, 0.1);
+    color: @iris;
+    background-color: @highlight_low;
 }
 
 #workspaces button:hover {
-    background: rgba(255, 255, 255, 0.2);
-    box-shadow: none;
+    background: @highlight_med;
+    color: @text;
 }
 
 /* Battery animations and states */
 #battery.charging,
 #battery.plugged {
-    color: #9ece6a;
+    color: @foam;
 }
 
 @keyframes blink {
     to {
-        background-color: #f7768e;
-        color: #ffffff;
+        background-color: @love;
+        color: @text;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f7768e;
-    color: #ffffff;
+    background-color: @love;
+    color: @text;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -80,14 +96,12 @@ window#waybar {
     animation-direction: alternate;
 }
 
-/* Clean up module-specific overrides that might conflict */
-/* We keep some specific colors if desired, but they will now have the same background */
-
 #network.disconnected,
 #pulseaudio.muted {
-    color: #f7768e;
+    color: @love;
 }
 
 #keyboard-state {
-    background: #24283b; /* Ensure it matches */
+    background: @overlay;
+    color: @text;
 }

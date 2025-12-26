@@ -70,7 +70,7 @@ echo -e "${YELLOW}🔗 Creando enlaces simbólicos...${NC}"
 mkdir -p "$CONFIG_DIR"
 
 # Lista de configuraciones comunes
-configs=("hypr" "waybar" "nvim" "yazi" "rofi" "wifimenu" "tmux")
+configs=("hypr" "waybar" "nvim" "yazi" "rofi" "wifimenu" "tmux" "lazygit")
 
 for cfg in "${configs[@]}"; do
     if [ -d "$DOTFILES_DIR/$cfg" ]; then
