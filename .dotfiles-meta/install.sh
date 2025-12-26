@@ -94,7 +94,13 @@ ln -s "$DOTFILES_DIR/tmux/tmux.conf" "$HOME/.tmux.conf"
 
 # Starship config especial
 create_backup "$CONFIG_DIR/starship.toml"
-ln -s "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/starship.toml"
+create_symlink "$DOTFILES_DIR/starship/starship.toml" "$CONFIG_DIR/starship.toml"
+
+# Asegurar inicialización en .bashrc
+if ! grep -q "starship init bash" "$HOME/.bashrc"; then
+    echo -e "${YELLOW}󱞪 Añadiendo Starship a .bashrc...${NC}"
+    echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
+fi
 
 echo "=========================================="
 echo -e "${GREEN}✓ ¡Proceso terminado con éxito!${NC}"
